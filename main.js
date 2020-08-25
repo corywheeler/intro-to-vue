@@ -53,10 +53,6 @@ Vue.component('product', {
                             :class="{ disabledButton: !inStock }">Add to Cart</button>
                     <button v-on:click="removeFromCart">Remove from Cart</button>
                 </div>
-
-                <div class="cart">
-                    <p>Cart({{ cart }})</p>
-                </div>
             </div>
         </div>
     `,
@@ -81,7 +77,6 @@ Vue.component('product', {
     data() {
         return {
             brand: 'Vue Mastery',
-            cart: 0,
             description: 'Silly White Whale\'s Playing',
             details: ["80% cotton", "20% polyester", "Gender-neutral"],
             selectedVariant: 0,
@@ -108,11 +103,10 @@ Vue.component('product', {
     } ,
     methods: {
         addToCart() {
-            this.cart += 1;
+            this.$emit('add-to-cart', this.variants[this.selectedVariant].variantId);
         },
         removeFromCart() {
-            if(this.cart > 0)
-                this.cart -= 1;
+            this.$emit('remove-from-cart', this.variants[this.selectedVariant].variantId);
         },
         updateProduct(index) {
             this.selectedVariant = index;
@@ -123,6 +117,15 @@ Vue.component('product', {
 var app = new Vue({
     el: '#app',
     data: {
+        cart: [],
         premium: false
+    },
+    methods: {
+        updateCart(id) {
+            this.cart.push(id);
+        },
+        removeFromCart(id) {
+            this.cart.splice(this.cart.indexOf(id), 1);
+        }
     }
 });
