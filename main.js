@@ -1,9 +1,12 @@
 var app = new Vue({
     el: '#app',
     data: {
-        product: 'Socks',
         description: 'Silly White Whale\'s Playing',
         image: './assets/vmSocks-green.jpg',
-        link: 'https://quasimatic.com'
+        inStock: false,
+        inventory: 8,
+        link: 'https://quasimatic.com',
+        onSale: true,
+        product: 'Socks'
     }
 });
