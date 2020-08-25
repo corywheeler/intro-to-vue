@@ -46,6 +46,10 @@ img {
     padding: 5px 20px;
 }
 
+.actions button{
+    vertical-align: top;
+}
+
 button {
     margin-top: 30px;
     border: none;
