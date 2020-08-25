@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Product App</title>
 </head>
+
 <body>
+    <div class="nav-bar"></div>
+
     <div id="app">
-        <h1>{{ product }}</h1>
-        <div>Description: {{ description }}</div>
+        <div class="product">
+            <div class="product-image">
+                <a :href="link" target="_blank"><img v-bind:src="image"></a>
+            </div>
+
+            <div class="product-info">
+                <h1>{{ product }}</h1>
+                <div>Description: {{ description }}</div>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
