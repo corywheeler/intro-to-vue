@@ -6,7 +6,7 @@ var app = new Vue({
         details: ["80% cotton", "20% polyester", "Gender-neutral"],
         image: './assets/vmSocks-green.jpg',
         inStock: false,
-        inventory: 8,
+        inventory: 0,
         link: 'https://quasimatic.com',
         onSale: true,
         product: 'Socks',
